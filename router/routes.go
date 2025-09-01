@@ -1,16 +1,15 @@
 package router
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"github.com/rafinhacuri/api-go.git/handler"
 )
 
 func InitializeRoutes(router *gin.Engine) {
 	v1 := router.Group("/api/v1")
 
-	v1.GET("/opening", func(ctx *gin.Context) { ctx.JSON(http.StatusOK, gin.H{"message": "Openiiiiing"}) })
-	v1.POST("/opening", func(ctx *gin.Context) { ctx.JSON(http.StatusOK, gin.H{"message": "Openiiiiing Post"}) })
-	v1.DELETE("/opening", func(ctx *gin.Context) { ctx.JSON(http.StatusOK, gin.H{"message": "Openiiiiing Delete"}) })
-	v1.PUT("/opening", func(ctx *gin.Context) { ctx.JSON(http.StatusOK, gin.H{"message": "Openiiiiing Put"}) })
+	v1.GET("/opening", handler.GetOpeningHandler)
+	v1.POST("/opening", handler.CreateOpeningHandler)
+	v1.DELETE("/opening", handler.DeleteOpeningHandler)
+	v1.PUT("/opening", handler.UpdateOpeningHandler)
 }
