@@ -7,6 +7,21 @@ import (
 	"github.com/rafinhacuri/api-go.git/schemas"
 )
 
+type ShowOpeningResponse struct {
+	Opening schemas.OpeningResponse `json:"opening"`
+}
+
+// @BasePath /api/v1
+
+// @Summary Show a job opening
+// @Description Show a job opening
+// @Tags opening
+// @Accept json
+// @Produce json
+// @Param id query string true "Opening ID"
+// @Success 200 {object} ShowOpeningResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /opening [get]
 func GetOpeningHandler(ctx *gin.Context) {
 	id := ctx.Query("id")
 

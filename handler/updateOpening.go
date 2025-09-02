@@ -7,6 +7,22 @@ import (
 	"github.com/rafinhacuri/api-go.git/schemas"
 )
 
+type UpdateOpeningResponse struct {
+	Message string                  `json:"message"`
+	Opening schemas.OpeningResponse `json:"opening"`
+}
+
+// @BasePath /api/v1
+
+// @Summary Update a job opening
+// @Description Update a job opening
+// @Tags opening
+// @Accept json
+// @Produce json
+// @Param request body UpdateOpeningRequest true "Request Body"
+// @Success 200 {object} UpdateOpeningResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /opening [put]
 func UpdateOpeningHandler(ctx *gin.Context) {
 	request := UpdateOpeningRequest{}
 
